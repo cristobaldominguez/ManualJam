@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+user = User.create(name: 'Cristobal', email: 'nada@nada.com', password: '123123')
+
 stories = [
     {title: 'Espacio Sideral', picture: '/images/01.jpg', content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'},
     {title: 'Star Dust', picture: '/images/02.jpg', content: 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'},
@@ -16,6 +18,11 @@ stories = [
 ]
 
 stories.each do |story|
-   s = Story.create(title: story[:title], picture: story[:picture], content: story[:content])
+    s = user.stories.create(
+                    title: story[:title], 
+                    picture: story[:picture], 
+                    content: story[:content]
+    )
+
    puts "Se ha creado la story: #{s.title}"
 end
