@@ -1,0 +1,7 @@
+<h1>My PicStories</h1>
+
+<div class="row">
+    <% @stories.reverse.each do |story| %>
+    <%= render 'stories/story_detail', story: story %>
+    <% end %>
+</div>
